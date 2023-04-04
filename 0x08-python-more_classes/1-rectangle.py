@@ -1,11 +1,9 @@
 #!/usr/bin/python3
-
 """Defination of class: Rectangle"""
 
 
 class Rectangle:
     """Initialising class: Rectangle"""
-
     def __init__(self, width=0, height=0):
         """intialising Rectangle"""
         self.width = width
@@ -17,7 +15,7 @@ class Rectangle:
         return self.__width
 
     @width.setter
-    def width(self.value):
+    def width(self, value):
         """setter for private instance attribute: width"""
         if type(value) is int:
             if value < 0:
