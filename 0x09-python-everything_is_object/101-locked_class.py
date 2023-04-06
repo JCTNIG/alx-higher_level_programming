@@ -6,4 +6,4 @@ class LockedClass:
     """prevents the user from dynamically creating new instance
     attributes, except if the new instance attribute is called first_name."""
 
-    def __logs__ = ["firist_name"]
+    def __slots__ = ["firist_name"]
