@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-    """
-    Addition function definition.
-    """
+"""
+Addition function definition: "0-add_integer"
+"""
 def add_integer(a, b=98):
     """
     This function adds to numbers of
