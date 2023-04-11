@@ -1,0 +1,101 @@
+doctest for 2-matrix_divided.py
+
+"""Success Tests"""
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+>>> matrix = [[15, 42, 31],[24, 55, 86]]
+>>> print(matrix_divided(matrix, 3))
+[[5.0, 14.0, 10.33], [8.0, 18.33, 28.67]]
+
+>>> matrix = [[1]]
+>>> print(matrix_divided(matrix, .5))
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+""" Raise ERROR Testings """
+
+
+>>> matrix = [[1, 2],[4, 5]]
+>>> print(matrix_divided(matrix, 0))
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+
+
+>>> matrix = [[1, "a", 3],[4, 5, 6]]
+>>> print(matrix_divided(matrix, 3))
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+>>> matrix = [[1, 2, 3,8],[5, 6, 3]]
+>>> print(matrix_divided(matrix, 3))
+Traceback (most recent call last):
+...
+TypeError: Each row of the matrix must have the same size
+
+
+>>> matrix = [[1, 2, 3],[4, 5, 6]]
+>>> print(matrix_divided(matrix, "sponge"))
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+
+>>> matrix = [(1,2,4), [4, 5, 6]]
+>>> print(matrix_divided(matrix, 3))
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+>>> matrix = [(1,2,3), [4, 5, 6]]
+>>> print(matrix_divided(matrix, 0))
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+
+
+>>> matrix = None
+>>> print(matrix_divided(matrix, 3))
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+>>> matrix = [[1,2,3],[4,5,6]]
+>>> print(matrix_divided(matrix, float(inf)))
+Traceback (most recent call last):
+...
+NameError: name 'inf' is not defined
+
+
+>>> matrix = [[71,27,3],[4,75,65]]
+>>> print(matrix_divided(, float(inf)))
+Traceback (most recent call last):
+...
+SyntaxError: invalid syntax
+
+
+
+>>> matrix = [[1,72,3],[48,95,6]]
+>>> print(matrix_divided(None, ))
+Traceback (most recent call last):
+...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+
+
+>>> matrix = [[17,29,38],[45,5,60]]
+>>> print(matrix_divided(, ))
+Traceback (most recent call last):
+...
+SyntaxError: invalid syntax
+
+
+>>> matrix = [[17,22,3],[4,65,33]]
+>>> print(matrix_divided(matrix, float('inf')))
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
