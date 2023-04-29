@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 
-"""Reads from standard input and computes metrics.
+"""Reads from standard input and adds metrics.
    For each ten lines or the input of a keyboard interruption (CTRL + C),
-   Returns these statistics:
-    a, Total file size up to that point.
-    b, Count of read status codes up to that point.
+   prints the following statistics:
+    1- Total file size up to that point.
+    2- Count of read status codes up to that point.
 """
 
 
@@ -27,26 +27,26 @@ if __name__ == "__main__":
     count = 0
 
     try:
-        for lines in sys.stdin:
+        for line in sys.stdin:
             if count == 10:
                 print_stats(size, status_codes)
                 count = 1
             else:
                 count += 1
 
-            lines = lines.split()
+            line = line.split()
 
             try:
-                size += int(lines[-1])
+                size += int(line[-1])
             except (IndexError, ValueError):
                 pass
 
             try:
-                if lines[-2] in valid_codes:
-                    if status_codes.get(lines[-2], -1) == -1:
-                        status_codes[lines[-2]] = 1
+                if line[-2] in valid_codes:
+                    if status_codes.get(line[-2], -1) == -1:
+                        status_codes[line[-2]] = 1
                     else:
-                        status_codes[lines[-2]] += 1
+                        status_codes[line[-2]] += 1
             except IndexError:
                 pass
 
