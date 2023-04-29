@@ -1,0 +1,59 @@
+"""
+test file for Matrix multiplication
+"""
+Normal Cases
+___________________________
+
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+[[7, 10], [15, 22]]
+
+Edge cases
+___________________________
+
+>>> matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+[[13, 16]]
+
+>>> matrix_mul([[3, 4], [5, 6]], [[1], [3]])
+[[15], [23]]
+
+m_a or m_b not a list
+____________________________
+>>> matrix_mul([(3, 4)], [[1], [3]])
+Traceback (most recent call last):
+TypeError: m_a must be a list of lists
+
+>>> matrix_mul([[3, 4]], [(1), (3)])
+Traceback (most recent call last):
+TypeError: m_b must be a list of lists
+
+supplying empty list
+____________________________
+>>> matrix_mul([], [[1], [3]])
+Traceback (most recent call last):
+ValueError: m_a can't be empty
+
+>>> matrix_mul([[1], [3]], [[]])
+Traceback (most recent call last):
+ValueError: m_b can't be empty
+
+supplying other data types apart from numbers
+______________________________________________
+
+>>> matrix_mul([['1'], ['3']], [[3,3]])
+Traceback (most recent call last):
+TypeError: m_a should contain only integers or floats
+
+supplying non rectangular list
+_______________________________________________
+>>> matrix_mul([[1, 8], [3, 2]], [[3,3], [6]])
+Traceback (most recent call last):
+TypeError: each row of m_b must be of the same size
+
+supplying matrices that cant't be multipled
+________________________________________________
+
+>>> matrix_mul([[3, 4], [5, 6]], [[1, 3]])
+Traceback (most recent call last):
+ValueError: m_a and m_b can't be multiplied

@@ -1,57 +1,45 @@
-The ``3-say_my_name`` module
--------------------------------------
+This text file hold test cases for a python module that prints the first and 
+last name of the user.
 
-     Test ``say_my_name``mnodule
-\_____________________________________/
+modulle name is `3-say_my_name` and function header is `say_my_name`.
 
-Importing the function from the module:
-	 >>> say_my_name = __import__("3-say_my_name").say_my_name
+importing the functon 
+>>> say_my_name = __import__('3-say_my_name').say_my_name
 
-Checking for module docstring:
-	 >>> m = __import__("3-say_my_name").__doc__
-	 >>> len(m) > 1
-	 True
+Test Cases
+_________________
 
-Checking for function docstring:
-	 >>> f = __import__("3-say_my_name").say_my_name.__doc__
-         >>> len(f) > 1
-         True
+>>> say_my_name('Ahmed', 'Olalekan')
+My name is Ahmed Olalekan
 
-Checking for passing None as last name:
-	 >>> say_my_name("Hello", None)
-	 Traceback (most recent call last):
-         ...
-         TypeError: last_name must be a string
+>>> say_my_name('Tianah', 'Nike')
+My name is Tianah Nike
 
-Checking for wrong type as first name:
-         >>> say_my_name(1, "Hello")
-         Traceback (most recent call last):
-         ...
-         TypeError: first_name must be a string
+>>> say_my_name('Mary')
+My name is Mary 
 
-Checking for wrong type as last name:
-         >>> say_my_name("Hello", [4])
-         Traceback (most recent call last):
-         ...
-         TypeError: last_name must be a string
-Checking for passing None as first name:
-      >>> say_my_name(None, "Hello")
-      Traceback (most recent call last):
-          ...
-          TypeError: first_name must be a string
+>>> say_my_name('', '')
+My name is  
 
-Checking for normal use:
-	 >>> say_my_name("Hello", "World")
-	 My name is Hello World
-	 >>> say_my_name("You know nothing", "John Snow")
-	 My name is You know nothing John Snow
+Error
+________________
 
-Checking for 1 arg:
-	 >>> say_my_name("Hello")
-	 My name is Hello 
+>>> say_my_name(12, 'Ahmed')
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
 
-Checking for more than 2 args:
-	 >>> say_my_name("Hello", "World", "hi")
-	 Traceback (most recent call last):
-	 ...
-	 TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+>>> say_my_name('Ahmed', 100)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+>>> say_my_name(None, 12)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+>>> say_my_name()
+Traceback (most recent call last):
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
