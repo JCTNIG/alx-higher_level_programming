@@ -1,19 +1,23 @@
 #!/usr/bin/python3
 
-""" This module contains a fnc that returns the corresponding 
-paschal's triangle of a given number """
+#!/usr/bin/python3
+"""Defines a Pascal's Triangle function."""
 
 
 def pascal_triangle(n):
-    """ This fnc returns the paschal triangle of 
-    a given integer
+    """Represent Pascal's Triangle of size n.
+
+    Returns a list of lists of integers representing the triangle.
     """
-    result = []
     if n <= 0:
-        return result
-    else:
-        for i in range(n):
-            lis = []
+        return []
 
-            lis.append(
-
+    triangle = [[1]]
+    while len(triangle) != n:
+        trian = triangle[-1]
+        tmpr = [1]
+        for i in range(len(trian) - 1):
+            tmpr.append(trian[i] + trian[i + 1])
+        tmpr.append(1)
+        triangle.append(tmpr)
+    return triangle
